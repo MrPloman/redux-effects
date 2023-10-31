@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root',
 })
-export class UsuarioService {
+export class UserService {
   private url = 'https://reqres.in/api';
 
   constructor(private http: HttpClient) {}

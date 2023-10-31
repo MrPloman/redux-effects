@@ -8,20 +8,20 @@ import { AppRoutingModule } from './app-routing.module';
 // Modulos personalizados
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { UsuariosModule } from './usuarios/usuarios.module';
+import { UsersModule } from './usuarios/usuarios.module';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     SharedModule,
-    UsuariosModule
+    UsersModule,
+    StoreModule.forRoot({}, {}),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -3,13 +3,10 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-usuario',
   templateUrl: './usuario.component.html',
-  styles: []
+  styles: [],
 })
-export class UsuarioComponent implements OnInit {
+export class UserComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

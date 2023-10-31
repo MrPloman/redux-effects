@@ -1,26 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { UsuarioService } from '../../services/usuario.service';
-import { Usuario } from '../../models/usuario.model';
+import { UserService } from '../../services/usuario.service';
+import { User } from '../../models/usuario.model';
 
 @Component({
   selector: 'app-lista',
   templateUrl: './lista.component.html',
-  styles: []
+  styles: [],
 })
 export class ListaComponent implements OnInit {
+  usuarios: User[] = [];
 
-  usuarios: Usuario[] = [];
-
-  constructor( public usuarioService: UsuarioService ) { }
+  constructor(public usuarioService: UserService) {}
 
   ngOnInit() {
-
-    this.usuarioService.getUsers()
-        .subscribe( users => {
-          console.log(users);
-          this.usuarios = users;
-        });
-
+    this.usuarioService.getUsers().subscribe((users) => {
+      console.log(users);
+      this.usuarios = users;
+    });
   }
-
 }

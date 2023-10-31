@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { loadUser } from 'src/app/store/actions/user.actions';
+import { AppState } from 'src/app/store/app.state';
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +10,7 @@ import { Router } from '@angular/router';
   styles: [],
 })
 export class NavbarComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private store: Store<AppState>) {}
 
   ngOnInit() {}
 
@@ -15,7 +18,6 @@ export class NavbarComponent implements OnInit {
     if (!id) {
       return;
     }
-
     this.router.navigate(['/usuario', id]);
   }
 }

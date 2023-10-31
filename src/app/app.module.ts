@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 // Rutas
@@ -10,6 +10,10 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { UsersModule } from './usuarios/usuarios.module';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { AppReducers } from './store/app.reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { effectsArray } from './store/effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,7 +23,12 @@ import { StoreModule } from '@ngrx/store';
     HttpClientModule,
     SharedModule,
     UsersModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot(AppReducers),
+    EffectsModule.forRoot(effectsArray),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: !isDevMode(),
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],
